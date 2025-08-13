@@ -1,8 +1,9 @@
 const playerForm = document.getElementById('playerForm');
 const playerList = document.getElementById('playerList');
 const nameInput = document.getElementById('playerName');
+const clearListBtn = document.getElementById('clearList');
 
-// Load senarai dari LocalStorage bila page dibuka
+// Load senarai dari LocalStorage
 document.addEventListener('DOMContentLoaded', loadPlayers);
 
 playerForm.addEventListener('submit', function(event) {
@@ -17,30 +18,38 @@ playerForm.addEventListener('submit', function(event) {
 });
 
 function addPlayer(name) {
-    // Buang placeholder "-" jika ada
     const placeholders = playerList.querySelectorAll('li');
     placeholders.forEach(li => {
         if(li.textContent === "-") li.remove();
     });
 
-    // Tambah ke senarai
     const li = document.createElement('li');
     li.textContent = name;
     playerList.appendChild(li);
 }
 
-// Simpan senarai ke LocalStorage
 function savePlayer(name) {
     let players = JSON.parse(localStorage.getItem('players')) || [];
     players.push(name);
     localStorage.setItem('players', JSON.stringify(players));
 }
 
-// Load senarai dari LocalStorage
 function loadPlayers() {
     let players = JSON.parse(localStorage.getItem('players')) || [];
     if(players.length > 0) {
-        playerList.innerHTML = ""; // Clear placeholder
+        playerList.innerHTML = "";
         players.forEach(name => addPlayer(name));
     }
 }
+
+clearListBtn.addEventListener('click', function() {
+    if(confirm("Padam semua senarai peserta?")) {
+        localStorage.removeItem('players');
+        playerList.innerHTML = `
+            <li>-</li>
+            <li>-</li>
+            <li>-</li>
+            <li>-</li>
+        `;
+    }
+});
