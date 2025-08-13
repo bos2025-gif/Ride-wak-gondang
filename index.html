@@ -5,15 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ride Merdeka Perdana RPM13</title>
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <h1>RIDE MERDEKA PERDANA RPM13</h1>
+    <div class="overlay">
+        <h1>🏍 RIDE MERDEKA PERDANA RPM13 🏍</h1>
+        <p>31 Ogos (Ahad) - Konvoi Ke Nasi Wak Gondan Yong Peng</p>
+    </div>
 </header>
 
 <main>
-    <section class="program-info">
+    <section class="program-info card">
         <h2>📅 Aturcara Program</h2>
         <p><strong>Halatuju:</strong> <a href="https://maps.app.goo.gl/8djMmj9w1MqFjPHr9?g_st=ipc" target="_blank">Nasi Wak Gondan Yong Peng</a></p>
         <p><strong>Tarikh:</strong> 31 Ogos (Ahad)</p>
@@ -21,16 +25,16 @@
         <p><strong>Tayar Golek:</strong> 8:00 pagi</p>
     </section>
 
-    <section class="form-section">
+    <section class="form-section card">
         <h2>📝 Daftar Nama Peserta</h2>
         <form id="playerForm">
             <label for="playerName">Nama:</label>
             <input type="text" id="playerName" placeholder="Masukkan nama anda..." required>
-            <button type="submit">Tambah</button>
+            <button type="submit" class="main-btn">Tambah</button>
         </form>
     </section>
 
-    <section class="players-list">
+    <section class="players-list card">
         <h2>🏍 Senarai Player</h2>
         <ul id="playerList">
             <li>-</li>
@@ -38,9 +42,10 @@
             <li>-</li>
             <li>-</li>
         </ul>
+        <button id="clearList" class="danger-btn">Padam Senarai</button>
     </section>
 
-    <p style="text-align:center; font-style:italic;">Stay tuned for updates!</p>
+    <p style="text-align:center; font-style:italic; color:white;">Stay tuned for updates!</p>
 </main>
 
 <div class="footer">
